@@ -10,6 +10,7 @@ import {
   DelayedRender,
   Text,
   Modal,
+  TeachingBubble,
 } from '@fluentui/react';
 import { useSize } from 'ahooks';
 import html2canvas from 'html2canvas';
@@ -25,6 +26,7 @@ function Page() {
   const { width } = useSize(document.getElementsByTagName('body')[0]);
   const [loading, setLoading] = React.useState(false);
   const [previewVisible, setPreviewVisible] = React.useState(false);
+  const [teachingBubbleVisible, setTeachingBubbleVisible] = React.useState(true);
 
   function handlePreview() {
     setLoading(true);
@@ -77,6 +79,7 @@ function Page() {
               square={square}
               onClick={() => {
                 setCalloutVisible(!calloutVisible);
+                setTeachingBubbleVisible(false);
               }}
             />
             {calloutVisible && (
@@ -95,6 +98,20 @@ function Page() {
                   />
                 </DelayedRender>
               </Callout>
+            )}
+            {teachingBubbleVisible && (
+              <TeachingBubble
+                target='#logo'
+                onDismiss={() => {
+                  setTeachingBubbleVisible(false);
+                }}
+                headline='支持调色'
+                calloutProps={{
+                  directionalHint: 9,
+                }}
+              >
+                点击图标弹出调色面板
+              </TeachingBubble>
             )}
           </div>
           <Stack style={{ width: 360 }}>
