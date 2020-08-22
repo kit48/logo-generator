@@ -1,0 +1,8 @@
+{
+  "short_name": "Logo Generator",
+  "name": "SNH48 Style Logo generator",
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}
