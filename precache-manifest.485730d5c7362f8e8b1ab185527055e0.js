@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "aa2ba5335c815c122320e5ac36b5fef6",
+    "revision": "7d96853b631bcbc1542de7132b55f0d8",
     "url": "/logo-generator/index.html"
   },
   {
-    "revision": "61e36bf030270086059d",
+    "revision": "4edc5443c95dff5a2d28",
     "url": "/logo-generator/static/css/main.30d8fb4d.chunk.css"
   },
   {
-    "revision": "7ba187da40f47a2d9695",
-    "url": "/logo-generator/static/js/2.776c2b53.chunk.js"
+    "revision": "fc62db50cfe39dad5fb4",
+    "url": "/logo-generator/static/js/2.06816676.chunk.js"
   },
   {
     "revision": "5ebc418b151f0d1d078277eb120a117e",
-    "url": "/logo-generator/static/js/2.776c2b53.chunk.js.LICENSE.txt"
+    "url": "/logo-generator/static/js/2.06816676.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "61e36bf030270086059d",
-    "url": "/logo-generator/static/js/main.bde3e683.chunk.js"
+    "revision": "4edc5443c95dff5a2d28",
+    "url": "/logo-generator/static/js/main.d433314d.chunk.js"
   },
   {
     "revision": "aab3cec2d50be5be5812",
