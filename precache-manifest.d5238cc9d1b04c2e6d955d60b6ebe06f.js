@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "6354c13020199e8d8fda8c3f047c5ffc",
+    "revision": "aa2ba5335c815c122320e5ac36b5fef6",
     "url": "/logo-generator/index.html"
   },
   {
