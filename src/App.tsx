@@ -23,6 +23,7 @@ const DEFAULT_COLOR = '#8fd3f6';
 const TEACHED_LABEL = 'teached';
 const LOGO_ID = 'logo';
 const PREVIEW_LOGO_ID = 'preview-logo';
+const GITHUB_CORNER_CLASS_NAME = 'github-corner';
 
 function Page() {
   const [name, setName] = React.useState(DEFAULT_NAME);
@@ -108,6 +109,9 @@ function Page() {
                     color={color}
                     onChange={(_, colorObj) => {
                       setColor(colorObj);
+
+                      const githubCornerNode = document.getElementsByClassName(GITHUB_CORNER_CLASS_NAME)[0];
+                      githubCornerNode.getElementsByTagName('svg')[0].style.fill = colorObj.str;
                     }}
                   />
                 </DelayedRender>
