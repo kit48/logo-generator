@@ -23,7 +23,7 @@ import Logo from './components/Logo';
 
 const DEFAULT_NAME = 'KIT';
 const DEFAULT_NUMBER = '48';
-const DEFAULT_COLOR = '#8fd3f6';
+const DEFAULT_COLOR = '#3178c6';
 const TEACHED_LABEL = 'teached';
 const LOGO_ID = 'logo';
 const PREVIEW_LOGO_ID = 'preview-logo';
@@ -53,11 +53,10 @@ function Page() {
     setPreviewVisible(true);
     const logoNode = document.getElementById(LOGO_ID)!;
 
-    html2canvas(logoNode, { foreignObjectRendering: false, logging: true })
+    html2canvas(logoNode, { backgroundColor: null })
       .then(function (canvas) {
         // 直接通过 cavas 下载会有图片显示不完整的 bug
         const previewLogoNode = document.getElementById(PREVIEW_LOGO_ID);
-        console.log(previewLogoNode);
         previewLogoNode?.appendChild(canvas);
         // const link = document.createElement('a');
         // link.download = `${name}${number}.png`;
