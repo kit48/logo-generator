@@ -164,7 +164,7 @@ function Page() {
           <Text variant='large' block>
             温馨提示
           </Text>
-          <Text style={{ marginTop: 12 }}>为了更好的用户体验，请使用 PC 访问本网站。</Text>
+          <Text style={{ marginTop: 12 }}>为了更好的使用体验，请使用 PC 访问本网站。</Text>
         </Stack>
         <Modal
           isOpen={previewVisible}
