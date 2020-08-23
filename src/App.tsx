@@ -156,6 +156,17 @@ function Page() {
             />
             <div style={{ marginTop: 24 }}>
               <DefaultButton
+                iconProps={{ iconName: 'Redo' }}
+                onClick={() => {
+                  setName(DEFAULT_NAME);
+                  setNumber(DEFAULT_NUMBER);
+                  setColor(getColorFromString(DEFAULT_COLOR)!);
+                  setSquare(false);
+                }}
+                text='重置'
+              />
+              <DefaultButton
+                style={{ marginLeft: 12 }}
                 iconProps={{ iconName: 'PictureFill' }}
                 disabled={loading || name.length !== 3 || number.length !== 2}
                 onClick={handlePreview}
