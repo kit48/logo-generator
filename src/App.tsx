@@ -11,6 +11,7 @@ import {
   Text,
   Modal,
   TeachingBubble,
+  Icon,
 } from '@fluentui/react';
 import { useSize } from 'ahooks';
 import html2canvas from 'html2canvas';
@@ -175,11 +176,17 @@ function Page() {
             </div>
           </Stack>
         </Stack>
-        <Stack horizontalAlign='center' style={{ marginTop: 48 }}>
+        <Stack horizontalAlign='center' style={{ marginTop: 64 }}>
           <Text variant='large' block>
             温馨提示
           </Text>
-          <Text style={{ marginTop: 12 }}>为了更好的使用体验，请使用 PC 访问本网站。</Text>
+          <Text style={{ marginTop: 12, marginBottom: 12 }}>为了更好的使用体验，请使用 PC 访问本网站。</Text>
+          <Text style={{ display: 'flex', alignItems: 'center' }} title='总访问量'>
+            <Icon iconName='Trophy' />
+            <span id='busuanzi_container_page_pv'>
+              <span id='busuanzi_value_page_pv'></span>
+            </span>
+          </Text>
         </Stack>
         <Modal
           isOpen={previewVisible}
