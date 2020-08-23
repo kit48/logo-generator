@@ -17,26 +17,40 @@ import html2canvas from 'html2canvas';
 
 import Logo from './components/Logo';
 
+const DEFAULT_NAME = 'KIT';
+const DEFAULT_NUMBER = '48';
+const DEFAULT_COLOR = '#8fd3f6';
+const TEACHED_LABEL = 'teached';
+const LOGO_ID = 'logo';
+const PREVIEW_LOGO_ID = 'preview-logo';
+
 function Page() {
-  const [name, setName] = React.useState('SNH');
-  const [number, setNumber] = React.useState('48');
-  const [color, setColor] = React.useState(getColorFromString('#8fd3f6')!);
+  const [name, setName] = React.useState(DEFAULT_NAME);
+  const [number, setNumber] = React.useState(DEFAULT_NUMBER);
+  const [color, setColor] = React.useState(getColorFromString(DEFAULT_COLOR)!);
   const [square, setSquare] = React.useState(false);
   const [calloutVisible, setCalloutVisible] = React.useState(false);
   const { width } = useSize(document.getElementsByTagName('body')[0]);
   const [loading, setLoading] = React.useState(false);
   const [previewVisible, setPreviewVisible] = React.useState(false);
-  const [teachingBubbleVisible, setTeachingBubbleVisible] = React.useState(true);
+  const [teachingBubbleVisible, setTeachingBubbleVisible] = React.useState(() => {
+    const teached = localStorage.getItem(TEACHED_LABEL);
+    return !teached;
+  });
+
+  React.useEffect(() => {
+    localStorage.setItem(TEACHED_LABEL, '1');
+  }, []);
 
   function handlePreview() {
     setLoading(true);
     setPreviewVisible(true);
-    const logo = document.getElementById('logo')!;
+    const logoNode = document.getElementById(LOGO_ID)!;
 
-    html2canvas(logo, { foreignObjectRendering: false, logging: true })
+    html2canvas(logoNode, { foreignObjectRendering: false, logging: true })
       .then(function (canvas) {
         // 直接通过 cavas 下载会有图片显示不完整的 bug
-        const previewLogoNode = document.getElementById('preview-logo');
+        const previewLogoNode = document.getElementById(PREVIEW_LOGO_ID);
         console.log(previewLogoNode);
         previewLogoNode?.appendChild(canvas);
         // const link = document.createElement('a');
@@ -53,7 +67,7 @@ function Page() {
   }
 
   function handleDownload() {
-    const previewLogoNode = document.getElementById('preview-logo');
+    const previewLogoNode = document.getElementById(PREVIEW_LOGO_ID);
     const canvas = previewLogoNode?.getElementsByTagName('canvas')[0];
     if (canvas) {
       const link = document.createElement('a');
@@ -72,7 +86,7 @@ function Page() {
           <div style={{ width: 360, display: 'flex', justifyContent: 'center' }}>
             <Logo
               key={`${name}${number}`}
-              id='logo'
+              id={LOGO_ID}
               name={name}
               number={number}
               backgroundColor={color.str}
@@ -84,7 +98,7 @@ function Page() {
             />
             {calloutVisible && (
               <Callout
-                target='#logo'
+                target={`#${LOGO_ID}`}
                 onDismiss={() => {
                   setCalloutVisible(false);
                 }}
@@ -101,7 +115,7 @@ function Page() {
             )}
             {teachingBubbleVisible && (
               <TeachingBubble
-                target='#logo'
+                target={`#${LOGO_ID}`}
                 onDismiss={() => {
                   setTeachingBubbleVisible(false);
                 }}
@@ -161,7 +175,7 @@ function Page() {
         >
           <Stack horizontalAlign='center'>
             <div
-              id='preview-logo'
+              id={PREVIEW_LOGO_ID}
               style={{
                 width: 360,
                 height: 330,
