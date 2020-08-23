@@ -14,6 +14,7 @@ import {
   Icon,
   Spinner,
   SpinnerSize,
+  Slider,
 } from '@fluentui/react';
 import { useSize } from 'ahooks';
 import html2canvas from 'html2canvas';
@@ -33,6 +34,7 @@ function Page() {
   const [number, setNumber] = React.useState(DEFAULT_NUMBER);
   const [color, setColor] = React.useState(getColorFromString(DEFAULT_COLOR)!);
   const [square, setSquare] = React.useState(false);
+  const [borderRadious, setBorderRadious] = React.useState(0);
   const [calloutVisible, setCalloutVisible] = React.useState(false);
   const { width } = useSize(document.getElementsByTagName('body')[0]);
   const [loading, setLoading] = React.useState(false);
@@ -95,6 +97,7 @@ function Page() {
               number={number}
               backgroundColor={color.str}
               square={square}
+              borderRadious={borderRadious}
               onClick={() => {
                 setCalloutVisible(!calloutVisible);
                 setTeachingBubbleVisible(false);
@@ -111,6 +114,7 @@ function Page() {
                   <ColorPicker
                     color={color}
                     onChange={(_, colorObj) => {
+                      console.log(colorObj);
                       setColor(colorObj);
 
                       const githubCornerNode = document.getElementsByClassName(GITHUB_CORNER_CLASS_NAME)[0];
@@ -135,29 +139,43 @@ function Page() {
               </TeachingBubble>
             )}
           </div>
-          <Stack style={{ width: 360 }}>
-            <TextField
-              label='Name'
-              value={name}
-              onChange={(_, newValue) => {
-                setName(newValue!.toUpperCase());
-              }}
-            />
-            <TextField
-              label='Number'
-              value={`${number}`}
-              onChange={(_, newValue) => {
-                setNumber(newValue!);
-              }}
-            />
-            <Toggle
-              label='Square'
-              checked={square}
-              onChange={(_, checked) => {
-                setSquare(!!checked);
-              }}
-            />
-            <div style={{ marginTop: 24 }}>
+          <Stack style={{ width: 360, marginLeft: 12 }}>
+            <div style={{ height: 248 }}>
+              <TextField
+                label='Name'
+                value={name}
+                onChange={(_, newValue) => {
+                  setName(newValue!.toUpperCase());
+                }}
+              />
+              <TextField
+                label='Number'
+                value={`${number}`}
+                onChange={(_, newValue) => {
+                  setNumber(newValue!);
+                }}
+              />
+              <Toggle
+                label='Square'
+                checked={square}
+                onChange={(_, checked) => {
+                  setSquare(!!checked);
+                }}
+              />
+              {square && (
+                <DelayedRender>
+                  <Slider
+                    label='Round Corner'
+                    value={borderRadious}
+                    onChange={(newValue) => {
+                      setBorderRadious(newValue);
+                    }}
+                    max={48}
+                  />
+                </DelayedRender>
+              )}
+            </div>
+            <div>
               <DefaultButton
                 iconProps={{ iconName: 'Redo' }}
                 onClick={() => {

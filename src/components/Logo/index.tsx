@@ -5,10 +5,11 @@ export interface LogoProps extends React.HTMLProps<HTMLDivElement> {
   number: string;
   backgroundColor: string;
   square?: boolean;
+  borderRadious?: number;
 }
 
 export default (props: LogoProps) => {
-  const { name, number, backgroundColor = '#8fd3f6', style, square, ...rest } = props;
+  const { name, number, backgroundColor = '#8fd3f6', style, square, borderRadious, ...rest } = props;
 
   const fontStyle: React.CSSProperties = {
     marginTop: -6,
@@ -27,6 +28,7 @@ export default (props: LogoProps) => {
         color: '#fefefe',
         fontFamily: "'Inconsolata', monospace",
         letterSpacing: '-12px',
+        borderRadius: `${square && borderRadious ? borderRadious : 0}px`,
         fontSize: '180px',
         lineHeight: '125px',
         ...style,
