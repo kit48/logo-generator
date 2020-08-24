@@ -82,12 +82,14 @@ function Page() {
     }
   }
 
+  const horizontal = !!width && width >= 734;
+
   return (
     <div
       style={{ width: '100vw', minHeight: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}
     >
       <div style={{ marginBottom: 80 }}>
-        <Stack horizontal={!!width && width >= 734} verticalAlign='center'>
+        <Stack horizontal={horizontal} verticalAlign='center'>
           <div style={{ width: 360, display: 'flex', justifyContent: 'center' }}>
             <Logo
               key={`${name}${number}`}
@@ -195,11 +197,31 @@ function Page() {
             </div>
           </Stack>
         </Stack>
-        <Stack horizontalAlign='center' style={{ marginTop: 64 }}>
+        <Stack horizontalAlign='center' style={{ margin: '64px 12px 0' }}>
           <Text variant='large' block>
             温馨提示
           </Text>
-          <Text style={{ marginTop: 12, marginBottom: 12 }}>为了更好的使用体验，请使用 PC 访问本网站。</Text>
+          <Text style={{ marginTop: 12, marginBottom: 12 }}>
+            为了更好的使用体验，请使用 PC 访问本网站。此外，如果你想实现更炫酷的效果，可以自己定制&nbsp;
+            <a href='https://www.runoob.com/css3/css3-tutorial.html' target='_blank'>
+              CSS 样式
+            </a>
+            ，比如
+            <a
+              href='https://www.runoob.com/css3/css3-gradients.html'
+              target='_blank'
+              onMouseOver={() => {
+                document.getElementById(LOGO_ID)!.style.backgroundImage =
+                  'linear-gradient(141deg,#9fb8ad 0%,#1fc8db 51%,#2cb5e8 75%)';
+              }}
+              onMouseLeave={() => {
+                document.getElementById(LOGO_ID)!.style.backgroundImage = 'unset';
+              }}
+            >
+              背景渐变
+            </a>
+            。
+          </Text>
           <Text style={{ display: 'flex', alignItems: 'center' }} title='总访问量'>
             <Icon iconName='Trophy' style={{ marginRight: 4 }} />
             <div id='busuanzi_container_page_pv'>
