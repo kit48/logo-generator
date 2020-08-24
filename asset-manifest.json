@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/logo-generator/static/css/main.30d8fb4d.chunk.css",
-    "main.js": "/logo-generator/static/js/main.a2376829.chunk.js",
-    "main.js.map": "/logo-generator/static/js/main.a2376829.chunk.js.map",
+    "main.js": "/logo-generator/static/js/main.b67c283a.chunk.js",
+    "main.js.map": "/logo-generator/static/js/main.b67c283a.chunk.js.map",
     "runtime-main.js": "/logo-generator/static/js/runtime-main.8f374c86.js",
     "runtime-main.js.map": "/logo-generator/static/js/runtime-main.8f374c86.js.map",
     "static/js/2.305533c5.chunk.js": "/logo-generator/static/js/2.305533c5.chunk.js",
     "static/js/2.305533c5.chunk.js.map": "/logo-generator/static/js/2.305533c5.chunk.js.map",
     "index.html": "/logo-generator/index.html",
-    "precache-manifest.eac380d3911948722ccc1e9db75715bb.js": "/logo-generator/precache-manifest.eac380d3911948722ccc1e9db75715bb.js",
+    "precache-manifest.432bbf0792ac152eaabb6722c4429c5c.js": "/logo-generator/precache-manifest.432bbf0792ac152eaabb6722c4429c5c.js",
     "service-worker.js": "/logo-generator/service-worker.js",
     "static/css/main.30d8fb4d.chunk.css.map": "/logo-generator/static/css/main.30d8fb4d.chunk.css.map",
     "static/js/2.305533c5.chunk.js.LICENSE.txt": "/logo-generator/static/js/2.305533c5.chunk.js.LICENSE.txt"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.8f374c86.js",
     "static/js/2.305533c5.chunk.js",
     "static/css/main.30d8fb4d.chunk.css",
-    "static/js/main.a2376829.chunk.js"
+    "static/js/main.b67c283a.chunk.js"
   ]
 }
