@@ -249,7 +249,9 @@ function Page() {
                 justifyContent: 'center',
                 marginTop: 36,
               }}
-            ></div>
+            >
+              {loading && <Spinner size={SpinnerSize.large} />}
+            </div>
             <div style={{ margin: '24px 0' }}>
               <DefaultButton
                 iconProps={{ iconName: 'Download' }}
