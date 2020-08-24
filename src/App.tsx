@@ -203,13 +203,14 @@ function Page() {
           </Text>
           <Text style={{ marginTop: 12, marginBottom: 12 }}>
             为了更好的使用体验，请使用 PC 访问本网站。此外，如果你想实现更炫酷的效果，可以自己定制&nbsp;
-            <a href='https://www.runoob.com/css3/css3-tutorial.html' target='_blank'>
+            <a href='https://www.runoob.com/css3/css3-tutorial.html' target='_blank' rel='noopener noreferrer'>
               CSS 样式
             </a>
             ，比如
             <a
               href='https://www.runoob.com/css3/css3-gradients.html'
               target='_blank'
+              rel='noopener noreferrer'
               onMouseOver={() => {
                 document.getElementById(LOGO_ID)!.style.backgroundImage =
                   'linear-gradient(141deg,#9fb8ad 0%,#1fc8db 51%,#2cb5e8 75%)';
